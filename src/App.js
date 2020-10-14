@@ -4,6 +4,7 @@ import Homepage from './pages/homepage/HomePage'
 import ShopPage from './pages/shop/ShopPage'
 import Header from './components/header/Header'
 import SignUpSignIn from './pages/signupsignin/SignUpSignIn'
+import { Provider } from 'react-redux'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {auth, createUserProfileDocument} from './firebase/firebase.utils'
 
