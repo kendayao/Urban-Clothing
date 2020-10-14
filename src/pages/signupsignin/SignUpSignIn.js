@@ -1,9 +1,13 @@
 import React from 'react'
 import './SignUpSignIn.scss'
 import SignIn from '../../components/signin/SignIn'
+import SignUp from '../../components/signup/SignUp'
 
-const SignUpSignIn=()=>{
-    return <div className='sign-in-and-sign-up'><SignIn /></div>
-}
+const SignUpSignIn=()=>(
+     <div className='sign-in-and-sign-up'>
+        <SignIn />
+        <SignUp />
+        </div>
+)
 
 export default SignUpSignIn
