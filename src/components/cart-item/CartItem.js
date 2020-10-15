@@ -12,8 +12,5 @@ const CartItem=({item:{imageUrl, price, name, quantity}})=>(
     </div>
 )
 
-const mapStateToProps=state=>({
-    cartItems: state.cart.CartItems
-}
-)
+
 export default CartItem
