@@ -5,8 +5,9 @@ import {Link} from 'react-router-dom'
 import {auth} from '../../firebase/firebase.utils'
 import{ReactComponent as Logo} from '../../assets/crown.svg'
 import CartIcon from '../cart-icon/cart-icon'
+import CartDropdown from '../cart-dropdown/cart-dropdown'
 
-const Header = ({currentUser})=>{
+const Header = ({currentUser, hidden})=>{
     return(
         <div className='header'>
             <Link className='logo-container' to='/'>
@@ -22,13 +23,17 @@ const Header = ({currentUser})=>{
             }
             <CartIcon/>
             </div>
-            
+            {
+                hidden? null:
+            <CartDropdown/>
+            }
         </div>
     )
 }
 
 const mapStateToProps=state=>({
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    hidden: state.cart.hidden
 
 })
 
