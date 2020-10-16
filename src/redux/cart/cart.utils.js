@@ -1,4 +1,5 @@
 export const addItemToCart=(cartItems, cartItemToAdd)=>{
+    // check for existing cart item in cart
     const existingCartItem=cartItems.find(cartItem=>cartItem.id===cartItemToAdd.id)
 
     if(existingCartItem){
@@ -12,6 +13,7 @@ export const addItemToCart=(cartItems, cartItemToAdd)=>{
 }
 
 export const removeItemFromCart=(cartItems, cartItemToRemove)=>{
+    // check for item in cart
     const existingCartItem=cartItems.find(cartItem=>cartItem.id===cartItemToRemove.id)
 
 
