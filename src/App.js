@@ -10,7 +10,7 @@ import {setCurrentUser} from './redux/user/user.actions'
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import {auth, createUserProfileDocument} from './firebase/firebase.utils'
 import {selectCurrentUser} from './redux/user/user.selectors'
-
+import {selectShopCollectionsForPreview} from './redux/shop/shop.selectors'
 
 
 class App extends Component {
@@ -20,7 +20,8 @@ class App extends Component {
 
   componentDidMount(){
 
-    const {setCurrentUser}=this.props
+    const {setCurrentUser, collectionsArray}=this.props
+    
     this.unsubscribeFromAuth=auth.onAuthStateChanged(async userAuth=>{
       if(userAuth){
         const userRef=await createUserProfileDocument(userAuth);
@@ -36,10 +37,12 @@ class App extends Component {
           })
         })
 
-        
+      
       }else{
         setCurrentUser(userAuth)
       }
+      
+      
       
       
     })
@@ -70,7 +73,7 @@ class App extends Component {
     }
 }
 const mapStateToProps=state=>({
-  currentUser: selectCurrentUser(state)
+  currentUser: selectCurrentUser(state),
 })
 
 const mapDispatchToProps=dispatch=>({
