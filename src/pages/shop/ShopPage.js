@@ -20,7 +20,7 @@ unsubscribeFromSnapshot=null;
 componentDidMount(){
     const{updateCollections} =this.props
     const collectionRef=firestore.collection('collection');
-    collectionRef.onSnapshot(async snapshot=>{
+    collectionRef.get().then(async snapshot=>{
         const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
         updateCollections(collectionsMap)
         this.setState({loading: false})
