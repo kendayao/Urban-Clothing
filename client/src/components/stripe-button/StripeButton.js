@@ -16,7 +16,7 @@ const StripedCheckoutButton=({price})=>{
                token
            }
        }).then(response=>{
-           alert('payment successful')
+           alert('Payment Successful')
        }).catch(error=>{
            console.log('Payment error: ', error);
            alert('There was an issue with your payment')
