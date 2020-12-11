@@ -19,8 +19,9 @@ const config = {
 
     //if user auth does exist; check if data already exist in database
     const userRef=firestore.doc(`users/${userAuth.uid}`)
+    
     const snapShot= await userRef.get();
-
+  
     //if doesn't exist create data in database
     if(!snapShot.exists){
       const {displayName, email}=userAuth;
@@ -52,7 +53,7 @@ const config = {
       const newDocRef=collectionRef.doc();
       batch.set(newDocRef, obj)
     })
-
+    // fire batch request
     return await batch.commit();
   }
 

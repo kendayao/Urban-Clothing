@@ -22,10 +22,10 @@ class App extends Component {
 
     const {setCurrentUser, collectionsArray}=this.props
     
+    
     this.unsubscribeFromAuth=auth.onAuthStateChanged(async userAuth=>{
       if(userAuth){
         const userRef=await createUserProfileDocument(userAuth);
-
         // listen to any changes in userRef
         userRef.onSnapshot(snapShot=>{
           
@@ -39,6 +39,7 @@ class App extends Component {
 
       
       }else{
+        // set to null if user signed out
         setCurrentUser(userAuth)
       }
       
@@ -74,6 +75,7 @@ class App extends Component {
 }
 const mapStateToProps=state=>({
   currentUser: selectCurrentUser(state),
+  collectionsArray: selectShopCollectionsForPreview(state)
 })
 
 const mapDispatchToProps=dispatch=>({
